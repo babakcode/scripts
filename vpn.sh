@@ -149,8 +149,20 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 		[[ -z "$ip6_number" ]] && ip6_number="1"
 		ip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n "$ip6_number"p)
 	fi
-	echo
-	echo "Which protocol should OpenVPN use?"
+	
+	cat << EOF
+	
+	
+'||''|.           '||              '||        ..|'''.|              '||          
+ ||   ||   ....    || ...   ....    ||  ..  .|'     '    ...      .. ||    ....  
+ ||'''|.  '' .||   ||'  || '' .||   || .'   ||         .|  '|.  .'  '||  .|...|| 
+ ||    || .|' ||   ||    | .|' ||   ||'|.   '|.      . ||   ||  |.   ||  ||      
+.||...|'  '|..'|'  '|...'  '|..'|' .||. ||.  ''|....'   '|..|'  '|..'||.  '|...' 
+        
+	
+	EOF
+	
+	echo "Which protocol should VPN use?"
 	echo "   1) UDP (recommended)"
 	echo "   2) TCP"
 	read -p "Protocol [1]: " protocol
@@ -430,12 +442,25 @@ verb 3" > /etc/openvpn/server/client-common.txt
 	echo "New clients can be added by running this script again."
 else
 	clear
-	echo "OpenVPN is already installed."
+	
+	
+	cat << EOF
+	
+'||''|.           '||              '||        ..|'''.|              '||          
+ ||   ||   ....    || ...   ....    ||  ..  .|'     '    ...      .. ||    ....  
+ ||'''|.  '' .||   ||'  || '' .||   || .'   ||         .|  '|.  .'  '||  .|...|| 
+ ||    || .|' ||   ||    | .|' ||   ||'|.   '|.      . ||   ||  |.   ||  ||      
+.||...|'  '|..'|'  '|...'  '|..'|' .||. ||.  ''|....'   '|..|'  '|..'||.  '|...' 
+        
+	
+	
+	EOF
+	echo "VPN is already installed."
 	echo
 	echo "Select an option:"
 	echo "   1) Add a new client"
 	echo "   2) Revoke an existing client"
-	echo "   3) Remove OpenVPN"
+	echo "   3) Remove VPN"
 	echo "   4) Exit"
 	read -p "Option: " option
 	until [[ "$option" =~ ^[1-4]$ ]]; do
