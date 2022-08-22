@@ -1,3 +1,17 @@
+__babakcode="
+	
+	
+	
+'||''|.           '||              '||        ..|'''.|              '||          
+ ||   ||   ....    || ...   ....    ||  ..  .|'     '    ...      .. ||    ....  
+ ||'''|.  '' .||   ||'  || '' .||   || .'   ||         .|  '|.  .'  '||  .|...|| 
+ ||    || .|' ||   ||    | .|' ||   ||'|.   '|.      . ||   ||  |.   ||  ||      
+.||...|'  '|..'|'  '|...'  '|..'|' .||. ||.  ''|....'   '|..|'  '|..'||.  '|...' 
+	
+	
+	
+"
+
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
 	echo 'This installer needs to be run with "bash", not "sh".'
@@ -150,17 +164,7 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 		ip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n "$ip6_number"p)
 	fi
 	
-	cat << EOF
-	
-	
-'||''|.           '||              '||        ..|'''.|              '||          
- ||   ||   ....    || ...   ....    ||  ..  .|'     '    ...      .. ||    ....  
- ||'''|.  '' .||   ||'  || '' .||   || .'   ||         .|  '|.  .'  '||  .|...|| 
- ||    || .|' ||   ||    | .|' ||   ||'|.   '|.      . ||   ||  |.   ||  ||      
-.||...|'  '|..'|'  '|...'  '|..'|' .||. ||.  ''|....'   '|..|'  '|..'||.  '|...' 
-        
-	
-	EOF
+	echo "$__babakcode"
 	
 	echo "Which protocol should VPN use?"
 	echo "   1) UDP (recommended)"
@@ -444,17 +448,8 @@ else
 	clear
 	
 	
-	cat << EOF
-	
-'||''|.           '||              '||        ..|'''.|              '||          
- ||   ||   ....    || ...   ....    ||  ..  .|'     '    ...      .. ||    ....  
- ||'''|.  '' .||   ||'  || '' .||   || .'   ||         .|  '|.  .'  '||  .|...|| 
- ||    || .|' ||   ||    | .|' ||   ||'|.   '|.      . ||   ||  |.   ||  ||      
-.||...|'  '|..'|'  '|...'  '|..'|' .||. ||.  ''|....'   '|..|'  '|..'||.  '|...' 
-        
-	
-	
-	EOF
+
+	echo "$__babakcode"
 	echo "VPN is already installed."
 	echo
 	echo "Select an option:"
